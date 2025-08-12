@@ -1,6 +1,7 @@
 # provider 설정
 provider "aws" {
- region = "ap-northeast-2"		# 서울
+  # region = "ap-northeast-2"		# 서울
+ region = var.aws_region
 }
 
 # vpc 생성

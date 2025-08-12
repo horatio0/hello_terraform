@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "ap-northeast-2"                         # 사실 IAM 은 리전이 상관없음. 
-}
-
 resource "aws_iam_user" "horatio" {                 # IAM 유저 생성
   name = "horatio"
 }
@@ -13,9 +9,7 @@ resource "aws_iam_group" "devops" {                 # IAM 그룹 생성
 resource "aws_iam_group_membership" "devops" {      # 그룹에 유저 추가
   name = aws_iam_group.devops.name
 
-  users = [
-    aws_iam_user.horatio.name
-  ]
+  users = var.iam_user_list
 
   group = aws_iam_group.devops.name
 }

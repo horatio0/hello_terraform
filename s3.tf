@@ -5,15 +5,10 @@
 # aws s3 cp <복사할 파일 이름> s3://<S3 버킷 이름>/                 => 업로드 명령어
 # aws s3 cp s3://<S3 버킷 이름>/<다운로드 할 파일 이름> <경로>      => 다운로드 명령어
 
-
-provider "aws" {
-  region  = "ap-northeast-2"
-}
-
 resource "aws_s3_bucket" "main" {
-  bucket  = "new_s3"
+  bucket  = "new-s3"
 
   tags = {
-    Name  = "new_s3"
+    Name  = "new-s3"
   }
 }
